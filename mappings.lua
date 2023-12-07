@@ -3,6 +3,7 @@
 -- Please use this mappings table to set keyboard mapping since this is the
 -- lower level configuration and more robust one. (which-key will
 -- automatically pick-up stored data by this setting.)
+vim.api.nvim_set_keymap('n', 'd', '<Nop>', {noremap = true})
 return {
   -- first key is the mode
   n = {
@@ -32,7 +33,43 @@ return {
     ["<leader>b"] = { name = "Buffers" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+   
+
+    -- Navigation 
+    ["q"] = { "b", desc = "Prev word" },
+    ["D"] = { "dd", desc = "delete"},
+    ["Q"] = { "^", desc = "Begining of line"},
+    ["E"] = {"$", desc = "End of line"},
+    ["s"] = { "}", desc = "Next empty"},
+    -- ["d"] = { "<Nop>", desc = "Next empty", noremap=true},
+    ["w"] = { "{", desc = "Prev empty"},
+    -- ["s"] = { "%", desc = "Parenthesis navigate", noremap = true},
+    -- Move
+    ["<A-j>"] = { ":m +1<CR>==", desc ="move lines down", noremap = true},
+    ["<A-k>"] = { ":m -2<CR>==", desc ="move lines up", noremap = true},
+    -- ["z"] = { ":q!<CR>", desc="Exit without save", noremap = true },
+    ["Z"] = { "ZZ", desc="Exit with save", noremap = true }
+
+
   },
+
+
+
+
+
+  v = {
+    ["q"] = { "b", desc = "Prev word" },
+    ["w"] = { "{", desc = "Prev empty"},
+    ["D"] = { "dd", desc = "delete"},
+    ["Q"] = { "^", desc = "Begining of line"},
+    ["E"] = {"$", desc = "End of line"},
+    ["s"] = { "}", desc = "Next empty", silent= true},
+    ["w"] = { "{", desc = "Prev empty"},
+    -- ["s"] = { "%", desc = "Parenthesis navigate", noremap = true},
+    ["<A-j>"] = { ":m +1<CR>==", desc ="move lines down", noremap = true},
+    ["<A-k>"] = { ":m -2<CR>==", desc ="move lines up", noremap = true}
+  },
+
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
