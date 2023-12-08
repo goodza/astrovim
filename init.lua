@@ -1,4 +1,5 @@
 return {
+
   -- Configure AstroNvim updates
   updater = {
     remote = "origin", -- remote to use
@@ -17,8 +18,13 @@ return {
     },
   },
 
+
+  -- Custom Alpha load
   -- Set colorscheme to use
+  --
+  termguicolors = true,
   colorscheme = "catppuccin",
+  --
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
     virtual_text = true,

@@ -35,3 +35,9 @@ git clone git@github.com:goodza/astrovim.git ~/.config/nvim/lua/user
 ```shell
 nvim
 ```
+
+
+#### Modify Home Dashboard
+```shell
+~/.config/nvim/lua/user/plugins/core.lua
+```
