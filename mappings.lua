@@ -48,9 +48,7 @@ return {
     ["<A-j>"] = { ":m +1<CR>==", desc ="move lines down", noremap = true},
     ["<A-k>"] = { ":m -2<CR>==", desc ="move lines up", noremap = true},
     -- ["z"] = { ":q!<CR>", desc="Exit without save", noremap = true },
-    ["Z"] = { "ZZ", desc="Exit with save", noremap = true }
-
-
+    ["Z"] = { "ZZ", desc="Exit with save", noremap = true },
   },
 
 
@@ -67,7 +65,9 @@ return {
     ["w"] = { "{", desc = "Prev empty"},
     -- ["s"] = { "%", desc = "Parenthesis navigate", noremap = true},
     ["<A-j>"] = { ":m +1<CR>==", desc ="move lines down", noremap = true},
-    ["<A-k>"] = { ":m -2<CR>==", desc ="move lines up", noremap = true}
+    ["<A-k>"] = { ":m -2<CR>==", desc ="move lines up", noremap = true},
+    -- ["<"] = { "#", desc = "Prev occasion"},
+    -- [">"] = { "*", desc = "Next occasion"}
   },
 
   t = {
