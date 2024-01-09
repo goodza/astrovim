@@ -61,7 +61,7 @@ return {
 
   -- Configure require("lazy").setup() options
   lazy = {
-    defaults = { lazy = true },
+    defaults = { lazy = false },
     performance = {
       rtp = {
         -- customize default disabled vim plugins
@@ -69,7 +69,12 @@ return {
       },
     },
   },
-
+-- Sourcegraph configuration. All keys are optional
+  -- Pass your own custom attach function
+  --    If you do not pass your own attach function, then the following maps are provide:
+  --        - gd -> goto definition
+  --        - gr -> goto references
+  -- on_attach = your_custom_lsp_attach_function
   -- This function is run last and is a good place to configuring
   -- augroups/autocommands and custom filetypes also this just pure lua so
   -- anything that doesn't fit in the normal config locations above can go here
@@ -88,3 +93,4 @@ return {
     -- }
   end,
 }
+
