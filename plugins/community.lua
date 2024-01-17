@@ -5,6 +5,7 @@ return {
   -- available plugins can be found at https://github.com/AstroNvim/astrocommunity
 
   { import = "astrocommunity.pack.rust" }, 
+  { import = "astrocommunity.pack.python" }, 
   { -- further customize the options set by the community
     "catppuccin",
     opts = {
