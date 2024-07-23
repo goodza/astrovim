@@ -2,6 +2,23 @@
 -- Configuration documentation can be found with `:h astrocore`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
 --       as this provides autocomplete and documentation while editing
+-- Replace text without yanking
+
+-- Replace text without yanking
+local function replace_without_yank()
+  -- Save the current register
+  local reg = vim.fn.getreg '"'
+  local reg_type = vim.fn.getregtype '"'
+
+  -- Delete the text into the black hole register
+  vim.cmd 'normal "_d'
+
+  -- Paste from the zero register
+  vim.cmd 'normal "0p'
+
+  -- Restore the original register
+  vim.fn.setreg('"', reg, reg_type)
+end
 
 ---@type LazySpec
 return {
@@ -40,12 +57,14 @@ return {
     -- Mappings can be configured through AstroCore as well.
     -- NOTE: keycodes follow the casing in the vimdocs. For example, `<Leader>` must be capitalized
 
+    -- ["c"] = { replace_without_yank, desc = "Replace without yanking" },
     -- vim.api.nvim_set_keymap('n', 'd', '<Nop>', {noremap = true})
     mappings = {
       -- first key is the mode
       n = {
         -- second key is the lefthand side of the map
-
+        ["c"] = { '"_c', desc = "replace to blackhole req" },
+        ["C"] = { '"_C', desc = "replace to blackhole req" },
         -- navigate buffer tabs
         ["]b"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
         ["[b"] = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
