@@ -62,6 +62,8 @@ return {
     mappings = {
       -- first key is the mode
       n = {
+        -- ["<Leader>d"] = { function() require("dap").continue() end, desc = "dap: go next" },
+        ["~"] = { function() require("dap").step_over() end, desc = "dap: go next" },
         -- second key is the lefthand side of the map
         ["c"] = { '"_c', desc = "replace to blackhole req" },
         ["C"] = { '"_C', desc = "replace to blackhole req" },
@@ -87,14 +89,16 @@ return {
         ["Q"] = { "^", desc = "Begining of line" },
         ["E"] = { "$", desc = "End of line" },
         ["s"] = { "}", desc = "Next empty" },
+        ["S"] = { "+", desc = "Down line" },
         -- ["d"] = { "<Nop>", desc = "Next empty", noremap=true},
         ["w"] = { "{", desc = "Prev empty" },
+        ["W"] = { "-", desc = "Up line" },
         -- ["s"] = { "%", desc = "Parenthesis navigate", noremap = true},
         -- Move
-        ["<A-j>"] = { ":m +1<CR>==", desc = "move lines down", noremap = true },
-        ["<A-k>"] = { ":m -2<CR>==", desc = "move lines up", noremap = true },
+        ["<S-M-j>"] = { ":m +1<CR>==", desc = "move lines down", noremap = true },
+        ["<S-M-k>"] = { ":m -2<CR>==", desc = "move lines up", noremap = false },
         -- ["z"] = { ":q!<CR>", desc="Exit without save", noremap = true },
-        ["Z"] = { "ZZ", desc = "Exit with save", noremap = true },
+        ["Z"] = { ":qa!<CR>==", desc = "Exit with save", noremap = true },
 
         -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus
@@ -107,14 +111,17 @@ return {
       v = {
         ["q"] = { "b", desc = "Prev word" },
         ["w"] = { "{", desc = "Prev empty" },
+        ["W"] = { "-", desc = "Up line" },
         ["D"] = { "dd", desc = "delete" },
         ["Q"] = { "^", desc = "Begining of line" },
         ["E"] = { "$", desc = "End of line" },
         ["s"] = { "}", desc = "Next empty", silent = true },
-        ["w"] = { "{", desc = "Prev empty" },
+        ["S"] = { "+", desc = "Down line" },
         -- ["s"] = { "%", desc = "Parenthesis navigate", noremap = true},
-        ["<A-j>"] = { ":m +1<CR>==", desc = "move lines down", noremap = true },
-        ["<A-k>"] = { ":m -2<CR>==", desc = "move lines up", noremap = true },
+        -- Move
+        -- ["s"] = { "%", desc = "Parenthesis navigate", noremap = true},
+        ["<S-M-j>"] = { ":m +1<CR>==", desc = "move lines down", noremap = true },
+        ["<S-M-k>"] = { ":m -2<CR>==", desc = "move lines up", noremap = true },
         -- ["<"] = { "#", desc = "Prev occasion"},
         -- [">"] = { "*", desc = "Next occasion"}
       },
