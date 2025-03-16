@@ -64,6 +64,7 @@ return {
       n = {
         -- ["<Leader>d"] = { function() require("dap").continue() end, desc = "dap: go next" },
         ["~"] = { function() require("dap").step_over() end, desc = "dap: go next" },
+        ["+"] = { function() require("dap").step_into() end, desc = "dap: go next" },
         -- second key is the lefthand side of the map
         ["c"] = { '"_c', desc = "replace to blackhole req" },
         ["C"] = { '"_C', desc = "replace to blackhole req" },
