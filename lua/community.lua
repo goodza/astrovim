@@ -11,7 +11,7 @@ return {
   { -- further customize the options set by the community
     "catppuccin",
     opts = {
-      flavour = "latte",
+      flavour = "mocha",
       background = {
         light = "latte",
         dark = "mocha",

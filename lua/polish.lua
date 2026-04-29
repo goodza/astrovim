@@ -6,6 +6,7 @@
 vim.opt.spell = true
 vim.opt.spelllang = "en_us" -- Change to your preferred language
 vim.api.nvim_set_hl(0, "SpellBad", { fg = "red", underline = true })
+vim.opt.clipboard = "unnamedplus"
 -- Set up custom filetypes
 
 -- vim.filetype.add {
