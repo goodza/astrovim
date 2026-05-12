@@ -82,6 +82,10 @@ return {
           end,
           desc = "Close buffer from tabline",
         },
+        ["<Leader>lr"] = {
+          function() vim.lsp.buf.rename() end,
+          desc = "Rename current symbol",
+        },
 
         -- Navigation
         ["r"] = { "q", desc = "Record" },
