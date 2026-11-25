@@ -1,22 +1,15 @@
 return {
   "MeanderingProgrammer/render-markdown.nvim",
   dependencies = {
-    {
-      "nvim-treesitter/nvim-treesitter",
-      branch = "main",
-      config = function()
-        vim.api.nvim_create_autocmd("FileType", {
-          pattern = { "llm", "markdown" },
-          callback = function() vim.treesitter.start(0, "markdown") end,
-        })
-      end,
-    },
+    "nvim-treesitter/nvim-treesitter",
     "nvim-mini/mini.icons",
   }, -- if you use standalone mini plugins
   ft = { "markdown", "llm" },
+  init = function() vim.treesitter.language.register("markdown", "llm") end,
 
   config = function()
     require("render-markdown").setup {
+      file_types = { "markdown", "llm" },
       restart_highlighter = true,
       heading = {
         enabled = true,

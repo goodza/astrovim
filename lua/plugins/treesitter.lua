@@ -2,13 +2,10 @@
 
 ---@type LazySpec
 return {
-  "nvim-treesitter/nvim-treesitter",
+  "AstroNvim/astrocore",
   opts = {
-    ensure_installed = {
-      "lua",
-      "vim",
-      "yaml",
-      -- add more arguments for adding more treesitter parsers
+    treesitter = {
+      ensure_installed = { "yaml", "javascript", "typescript", "tsx" },
     },
   },
 }

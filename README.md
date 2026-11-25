@@ -1,6 +1,6 @@
 # AstroNvim+Goodza Template
 
-**NOTE:** This is for AstroNvim v4+
+This configuration uses AstroNvim v6.1.1. It was tested on Neovim 0.12.6 and requires the `tree-sitter` CLI to install parsers.
 
 A template for getting started with [AstroNvim](https://github.com/AstroNvim/AstroNvim)
 
@@ -35,9 +35,8 @@ nvim
 
 #### User modifications
 
-Since v4 user's custom confings and boilerplate Astro's one in the same repo
-Mappings are defined in astrocore.lua
-Home screen in user.lua
+Editor mappings are in `lua/plugins/astrocore.lua`, LSP mappings in `lua/plugins/astrolsp.lua`, and OpenCode mappings in `lua/plugins/opencode2.lua`.
+The Alpha dashboard header is in `lua/plugins/user.lua`.
 
 #### Update
 

@@ -30,7 +30,7 @@ return {
       large_buf = { size = 1024 * 256, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
       autopairs = true, -- enable autopairs at start
       cmp = true, -- enable completion at start
-      diagnostics_mode = 3, -- diagnostic mode on start (0 = off, 1 = no signs/virtua text, 2 = no virtual text, 3 = on)
+      diagnostics = true,
       highlighturl = true, -- highlight URLs at start
       notifications = true, -- enable notifications at start
     },
@@ -38,6 +38,30 @@ return {
     diagnostics = {
       virtual_text = true,
       underline = true,
+    },
+    autocmds = {
+      restore_terminal_navigation = {
+        {
+          event = "VimEnter",
+          callback = function()
+            if vim.fn.maparg("<C-j>", "t") == "" then
+              vim.keymap.set("t", "<C-j>", function()
+                if vim.api.nvim_win_get_config(0).zindex then
+                  vim.api.nvim_feedkeys(vim.keycode "<C-j>", "n", false)
+                else
+                  vim.cmd.wincmd "j"
+                end
+              end, { desc = "Terminal down window navigation" })
+            end
+            if vim.fn.maparg("<C-j>", "n") == "" then
+              local existing = vim.fn.maparg("<NL>", "n", false, true)
+              vim.keymap.set("n", "<C-j>", existing.callback or existing.rhs or "<C-w>j", {
+                desc = "Move to below split",
+              })
+            end
+          end,
+        },
+      },
     },
     -- vim options can be configured here
     options = {
